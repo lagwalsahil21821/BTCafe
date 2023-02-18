@@ -3,12 +3,18 @@ package com.example.bt_cafe
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
@@ -18,7 +24,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            BT_CafeTheme {
+            /*BT_CafeTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
@@ -29,12 +35,36 @@ class MainActivity : ComponentActivity() {
                         size = 32
                     )
                 }
+            }*/
+
+            // layout: column, row, box
+            Column() {
+                Text(
+                    text = stringResource(id = R.string.title),
+                    color = Color(0xFFF4CE14),
+                    fontSize = 32.sp
+                )
+
+                Text(
+                    text = stringResource(id = R.string.location),
+                    color = Color(0xFFF4CE14)
+                )
+
+                Row() {
+                    Button(onClick = { /*TODO*/ }) {
+                        Text(text = stringResource(id = R.string.order))
+                    }
+                    Image(painter = painterResource(id = R.drawable.cafe), contentDescription = "")
+                }
             }
+
+
         }
     }
 }
 
 
+/*
 @Composable
 fun RestaurantName(name: String, size: Int){
     Text(text = name, fontSize = size.sp)
@@ -65,4 +95,4 @@ fun DefaultPreview() {
     BT_CafeTheme() {
         Greeting("Android")
     }
-}
+}*/
