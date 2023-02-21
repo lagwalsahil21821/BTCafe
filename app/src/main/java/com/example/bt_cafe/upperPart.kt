@@ -26,45 +26,41 @@ fun UpperPart(){
     val context = LocalContext.current
     // layout: column, row, box
     Column(
-        verticalArrangement = Arrangement.Top,
-        horizontalAlignment = Alignment.Start,
+//        verticalArrangement = Arrangement.Top,
+//        horizontalAlignment = Alignment.Start,    // no need as it is by default
         modifier = Modifier
-            .fillMaxWidth()
             .background(Color(0xFF495E57))
+            .padding(start = 12.dp, end = 12.dp, top = 16.dp, bottom = 16.dp)
 
     ) {
         Text(
             text = stringResource(id = R.string.title),
             color = Color(0xFFF4CE14),
-            fontSize = 32.sp,
-            modifier = Modifier.padding(start = 20.dp, top = 20.dp)
+            fontSize = 40.sp,
+            fontWeight = FontWeight.Bold
         )
 
         Text(
             text = stringResource(id = R.string.location),
             fontSize = 24.sp,
-            color = Color(0xFFFFFFFF),
-            modifier = Modifier.padding(start = 20.dp)
+            color = Color(0xFFEDEFEE)
         )
 
         Row(
             Modifier
-                .fillMaxWidth()
-                .padding(20.dp),
-            horizontalArrangement = Arrangement.Start
+                .padding(top = 18.dp)
 
         ) {
             Text(
                 text = stringResource(id = R.string.description_one),
-                modifier = Modifier.width(200.dp),
-                color = Color.White,
-                fontSize = 18.sp
+                color = Color(0xFFEDEFEE),
+                fontSize = 18.sp,
+                modifier = Modifier.fillMaxWidth(0.6f)
             )
             Image(
                 painter = painterResource(id = R.drawable.cafe),
-                contentDescription = "",
+                contentDescription = "Upper Part Image",
                 Modifier
-                    .height(125.dp)
                     .clip(RoundedCornerShape(20.dp))
             )
 
@@ -72,11 +68,10 @@ fun UpperPart(){
 
         Button(
             onClick = {
-                Toast.makeText(context, "Order Successful!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Order received. Thank you!", Toast.LENGTH_SHORT).show()
             },
             shape = RoundedCornerShape(20.dp),
-            colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFFF4CE14)),
-            modifier = Modifier.padding(start = 20.dp, bottom = 20.dp)
+            colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFFF4CE14))
         ) {
             Text(
                 text = stringResource(id = R.string.order),
