@@ -1,6 +1,6 @@
 <resources>
-    <string name="title">BT_Cafe</string>
-    <string name="app_name">BT_Cafe</string>
+    <string name="title">BT Cafe</string>
+    <string name="app_name">BT Cafe</string>
     <string name="location">Himachal Pradesh</string>
     <string name="order">Order</string>
 </resources>
