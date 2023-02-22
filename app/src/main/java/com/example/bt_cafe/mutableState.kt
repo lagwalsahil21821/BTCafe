@@ -19,17 +19,25 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun MutRem(){
-    var count by rememberSaveable(){    //every time you add or remove recomposition occurs, so to remember
-                                        // previous values use this
+fun ItemOrder(){
+
+    // reuse
+    var count by rememberSaveable(){    //every time you add or remove recomposition occurs,
+        // so to remember previous values use this
         mutableStateOf(0)
     }
+    MutRem(count, {count++}, {count--})
+}
+
+@Composable
+fun MutRem(count: Int, OnIncrement: () -> Unit, OnDecrement: () -> Unit){
+
 
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Text(
             text = stringResource(id = R.string.item_one),
             fontSize = 30.sp
-        
+
         )
 
         Row(
@@ -39,7 +47,7 @@ fun MutRem(){
         ) {
 
             IconButton(
-                onClick = { if(count>0) count-- }
+                onClick = { if(count>0)OnDecrement() }
             ) {
                 Icon(imageVector = Icons.Default.Remove,
                     contentDescription = "Remove")
@@ -52,7 +60,7 @@ fun MutRem(){
                 modifier = Modifier.padding(8.dp)
             )
 
-            IconButton(onClick = { count++ }) {
+            IconButton(onClick = { OnIncrement() }) {
                 Icon(imageVector = Icons.Default.Add, contentDescription = "Add")
             }
         }
@@ -62,6 +70,6 @@ fun MutRem(){
 
 @Preview(showBackground = true)
 @Composable
-fun MutRemPreview(){
-    MutRem()
+fun ItemOrderPreview(){
+    ItemOrder()
 }

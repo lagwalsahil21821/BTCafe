@@ -38,7 +38,7 @@ fun HomeScreen(){
     Column {
         //UpperPart()
         //LowerPart()
-        MutRem()
+        ItemOrder()
     }
 
 }
