@@ -35,9 +35,10 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun HomeScreen(){
-    Column() {
-        UpperPart()
-        LowerPart()
+    Column {
+        //UpperPart()
+        //LowerPart()
+        MutRem()
     }
 
 }
