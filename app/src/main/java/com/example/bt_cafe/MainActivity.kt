@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -35,10 +36,19 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun HomeScreen(){
-    Column {
-        //UpperPart()
-        //LowerPart()
-        ItemOrder()
+    val scaffoldState = rememberScaffoldState()
+    val scope = rememberCoroutineScope()
+    Scaffold(
+        scaffoldState = scaffoldState,
+        drawerContent = { DrawablePanel(scaffoldState = scaffoldState, scope = scope)},
+        topBar = {
+            TopAppBar(scaffoldState = scaffoldState, scope = scope)
+        }
+    ) {
+        Column {
+            UpperPart()
+            LowerPart()
+        }
     }
 
 }
