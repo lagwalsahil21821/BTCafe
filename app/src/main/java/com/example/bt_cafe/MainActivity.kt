@@ -1,28 +1,18 @@
 package com.example.bt_cafe
 
+import android.icu.text.CaseMap
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Color.Companion.Gray
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.example.bt_cafe.ui.theme.BT_CafeTheme
-import org.intellij.lang.annotations.JdkConstants
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,20 +26,34 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun HomeScreen(){
-    val scaffoldState = rememberScaffoldState()
-    val scope = rememberCoroutineScope()
-    Scaffold(
-        scaffoldState = scaffoldState,
-        drawerContent = { DrawablePanel(scaffoldState = scaffoldState, scope = scope)},
-        topBar = {
-            TopAppBar(scaffoldState = scaffoldState, scope = scope)
+    // navigation start
+    val navController = rememberNavController()
+    NavHost(navController = navController, startDestination = Home.route){
+        composable(Home.route){
+            firstScreen(navController)
         }
-    ) {
-        Column {
-            UpperPart()
-            LowerPart()
+
+        composable(MenuList.route){
+            MenuListScreen()     // in mutable state.kt file
         }
     }
+
+    // navigation end
+
+//    val scaffoldState = rememberScaffoldState()
+//    val scope = rememberCoroutineScope()
+//    Scaffold(
+//        scaffoldState = scaffoldState,
+//        drawerContent = { DrawablePanel(scaffoldState = scaffoldState, scope = scope)},
+//        topBar = {
+//            TopAppBar(scaffoldState = scaffoldState, scope = scope)
+//        }
+//    ) {
+//        Column {
+//            UpperPart()
+//            LowerPart()
+//        }
+//    }
 
 }
 
