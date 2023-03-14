@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.sp
 fun LowerPart() {
     Column {
         WeeklySpecial()
+        ListRun()
         MenuDish()
     }
 }
