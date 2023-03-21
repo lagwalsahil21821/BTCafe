@@ -21,14 +21,14 @@ fun ListRun(){
         modifier = Modifier.fillMaxWidth()
     ) {
         categories.forEach(){
-            MenuCategory(category = it)
+            MenuCategory1(category = it)
         }
     }
 }
 
 
 @Composable
-private fun MenuCategory(category: String) {
+private fun MenuCategory1(category: String) {
     Button(
         onClick = { /*TODO*/ },
         colors = ButtonDefaults.buttonColors(backgroundColor = Color.Gray),
@@ -42,7 +42,7 @@ private fun MenuCategory(category: String) {
 @Preview(showBackground = true)
 @Composable
 fun MenuCategoryPreview(){
-    MenuCategory(category = "Category")
+    MenuCategory1(category = "Category")
 }
 
 
