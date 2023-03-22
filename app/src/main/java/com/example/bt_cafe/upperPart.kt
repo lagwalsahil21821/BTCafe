@@ -31,21 +31,18 @@ fun UpperPart() {
 //        verticalArrangement = Arrangement.Top,
 //        horizontalAlignment = Alignment.Start,    // no need as it is by default
         modifier = Modifier
-            .background(Color(0xFF495E57))
+            .background(LittleLemonColor.green)
             .padding(start = 12.dp, end = 12.dp, top = 16.dp, bottom = 16.dp)
 
     ) {
         Text(
             text = stringResource(id = R.string.title),
-            color = Color(0xFFF4CE14),
-            fontSize = 40.sp,
-            fontWeight = FontWeight.Bold
+            color = LittleLemonColor.yellow
         )
 
         Text(
             text = stringResource(id = R.string.location),
-            fontSize = 24.sp,
-            color = Color(0xFFEDEFEE)
+            color = LittleLemonColor.cloud
         )
 
         Row(
@@ -55,9 +52,10 @@ fun UpperPart() {
         ) {
             Text(
                 text = stringResource(id = R.string.description_one),
-                color = Color(0xFFEDEFEE),
-                fontSize = 18.sp,
-                modifier = Modifier.fillMaxWidth(0.6f)
+                color = LittleLemonColor.cloud,
+                modifier = Modifier
+                    .padding(bottom = 28.dp)
+                    .fillMaxWidth(0.6f)
             )
             Image(
                 painter = painterResource(id = R.drawable.cafe),
@@ -74,13 +72,10 @@ fun UpperPart() {
 
             },
             shape = RoundedCornerShape(20.dp),
-            colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFFF4CE14))
+            colors = ButtonDefaults.buttonColors(backgroundColor = LittleLemonColor.yellow)
         ) {
             Text(
-                text = stringResource(id = R.string.order),
-                fontSize = 18.sp,
-                fontWeight = FontWeight.Bold,
-                color = Color(0xFF333333)
+                text = stringResource(id = R.string.order)
             )
         }
 

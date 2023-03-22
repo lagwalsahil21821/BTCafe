@@ -1,16 +1,14 @@
 package com.example.bt_cafe
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.drawscope.ContentDrawScope
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -23,31 +21,39 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun TopAppBar(scaffoldState: ScaffoldState? = null, scope: CoroutineScope? = null){
-    Row(
-        modifier = Modifier.fillMaxWidth()
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+
     ) {
-        IconButton(onClick = {
-                scope?.launch { scaffoldState?.drawerState?.open() }
-            }
+        IconButton(
+            onClick = {
+                scope?.launch { scaffoldState?.drawerState?.open() } },
+            modifier = Modifier.align(Alignment.CenterStart)
         ) {
-            Icon(imageVector = Icons.Default.Menu, contentDescription = "Navigation Button")
-            //Image(painter = painterResource(id = R.drawable.cafe), contentDescription = "Menu Icon")
+            //Icon(imageVector = Icons.Default.Menu, contentDescription = "Navigation Button")
+            Image(
+                painter = painterResource(id = R.drawable.ic_hamburger_menu),
+                contentDescription = "Menu Icon"
+            )
         }
 
 
-        Image(painter = painterResource(id = R.drawable.img),
+        Image(painter = painterResource(id = R.drawable.btcafe),
             contentDescription = "BT logo ",
-            modifier = Modifier
-                .padding(20.dp)
-                .size(20.dp)
+            modifier = Modifier.fillMaxWidth(0.32f)
+                .align(Alignment.Center)
+
         )
 
-        IconButton(onClick = { /*TODO*/ }) {
-            Icon(imageVector = Icons.Default.Search, contentDescription = "Navigation Button")
-//            Image(painter = painterResource(id = R.drawable.img),
-//                contentDescription = "Cart",
-//                modifier = Modifier.padding(20.dp).size(20.dp)
-//            )
+        IconButton(
+            onClick = { /*TODO*/ },
+            modifier = Modifier.align(Alignment.CenterEnd)
+        ) {
+            //Icon(imageVector = Icons.Default.Search, contentDescription = "Navigation Button")
+            Image(painter = painterResource(id = R.drawable.ic_basket),
+                contentDescription = "Cart",
+            )
         }
     }
 }

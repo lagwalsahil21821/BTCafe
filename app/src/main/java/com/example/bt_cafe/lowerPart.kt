@@ -45,8 +45,7 @@ fun WeeklySpecial(){
     ) {
         Text(
             text = stringResource(id = R.string.menu_header),
-            fontWeight = FontWeight.Bold,
-            fontSize = 26.sp,
+            color = LittleLemonColor.charcoal,
             modifier = Modifier
                 .padding(8.dp)
         )
@@ -66,6 +65,16 @@ private fun MenuCategory(category: String) {
     }
 }
 
+
+@Composable
+fun MyCategory(){
+    LazyRow() {
+        items(Categories){
+                Category -> MenuCategory(Category)
+        }
+    }
+}
+
 @Composable
 fun MenuDish(dish: Dish) {
     Card{
@@ -78,20 +87,18 @@ fun MenuDish(dish: Dish) {
             Column {
                 Text(
                     text = dish.name,
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 18.sp
+                    color = LittleLemonColor.charcoal
                 )
                 Text(
                     text = dish.description,
-                    color = Color.Gray,
+                    color = LittleLemonColor.green,
                     modifier = Modifier
                         .padding(top = 5.dp, bottom = 5.dp)
                         .fillMaxWidth(0.75f)
                 )
                 Text(
                     text =  dish.price,
-                    color = Color.Gray,
-                    fontWeight = FontWeight.Bold
+                    color = LittleLemonColor.green
                 )
             }
 
@@ -104,19 +111,10 @@ fun MenuDish(dish: Dish) {
 
     Divider(
         modifier = Modifier.padding(start = 8.dp, end = 8.dp),
-        color = Color.LightGray,
-        thickness = 1.dp
+        thickness = 1.dp,
+        color = LittleLemonColor.yellow
     )
 
-}
-
-@Composable
-fun MyCategory(){
-    LazyRow() {
-        items(Categories){
-            Category -> MenuCategory(Category)
-        }
-    }
 }
 
 
