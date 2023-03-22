@@ -1,5 +1,6 @@
 package com.example.bt_cafe
 
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.icu.text.CaseMap
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -67,6 +68,5 @@ fun HomeScreen(){
 fun HomeScreenPreview(){
     HomeScreen()
 }
-
 
 
