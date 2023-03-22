@@ -37,12 +37,15 @@ fun UpperPart() {
     ) {
         Text(
             text = stringResource(id = R.string.title),
-            color = LittleLemonColor.yellow
+            color = LittleLemonColor.yellow,
+            fontSize = 40.sp,
+            fontWeight = FontWeight.Bold
         )
 
         Text(
             text = stringResource(id = R.string.location),
-            color = LittleLemonColor.cloud
+            color = LittleLemonColor.cloud,
+            fontWeight = FontWeight.Bold
         )
 
         Row(
@@ -53,6 +56,7 @@ fun UpperPart() {
             Text(
                 text = stringResource(id = R.string.description_one),
                 color = LittleLemonColor.cloud,
+                fontSize = 18.sp,
                 modifier = Modifier
                     .padding(bottom = 28.dp)
                     .fillMaxWidth(0.6f)
@@ -75,7 +79,9 @@ fun UpperPart() {
             colors = ButtonDefaults.buttonColors(backgroundColor = LittleLemonColor.yellow)
         ) {
             Text(
-                text = stringResource(id = R.string.order)
+                text = stringResource(id = R.string.order),
+                fontWeight = FontWeight.Bold,
+                fontSize = 18.sp
             )
         }
 

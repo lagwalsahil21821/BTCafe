@@ -46,6 +46,8 @@ fun WeeklySpecial(){
         Text(
             text = stringResource(id = R.string.menu_header),
             color = LittleLemonColor.charcoal,
+            fontSize = 26.sp,
+            fontWeight = FontWeight.Bold,
             modifier = Modifier
                 .padding(8.dp)
         )
@@ -87,7 +89,9 @@ fun MenuDish(dish: Dish) {
             Column {
                 Text(
                     text = dish.name,
-                    color = LittleLemonColor.charcoal
+                    color = LittleLemonColor.charcoal,
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Bold
                 )
                 Text(
                     text = dish.description,
@@ -98,6 +102,7 @@ fun MenuDish(dish: Dish) {
                 )
                 Text(
                     text =  dish.price,
+                    fontWeight = FontWeight.Bold,
                     color = LittleLemonColor.green
                 )
             }
